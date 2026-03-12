@@ -14,18 +14,8 @@
     <!-- Privacy-friendly analytics by Plausible -->
     <script async src="https://plausible.io/js/pa-eywjyGo6AEorRuxMnKwKZ.js"></script>
     <script>
-      // Queue custom events until pa- script is ready
-      window.plausible = window.plausible || function() {
-        (window.plausible.q = window.plausible.q || []).push(arguments);
-      };
-      document.addEventListener("DOMContentLoaded", function() {
-        // Re-check after DOM ready to ensure pa- script has initialized
-        setTimeout(function() {
-          if (window.plausible && window.plausible.q) {
-            console.log("[Plausible] Script loaded, flushing queue:", window.plausible.q.length, "events");
-          }
-        }, 2000);
-      });
+      window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+      plausible.init()
     </script>
 
 
@@ -1720,7 +1710,7 @@
               </div>
               <div>
                 <div class="detail-label">Email</div>
-                <div class="detail-value">hello@meridian.co</div>
+                <div class="detail-value"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="c0a8a5acacaf80ada5b2a9a4a9a1aeeea3af">[email&#160;protected]</a></div>
               </div>
             </div>
             <div class="contact-detail">
@@ -1863,7 +1853,7 @@
       </div>
     </footer>
 
-    <script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
       /* ── CURSOR ── */
       const cursor = document.getElementById("cursor");
       const ring = document.getElementById("cursor-ring");
@@ -1947,16 +1937,16 @@
           return;
         }
 
-        // ✅ Fire Plausible custom event → triggers "Contact Form Submit" goal
+        // Fire Plausible custom event
         if (typeof window.plausible === "function") {
-          plausible("Contact Form Submit");
-          console.log("[Plausible] Goal fired: Contact Form Submit");
+          window.plausible("Contact Form Submit");
         }
 
         f("contactForm").style.display = "none";
         f("formSuccess").classList.add("show");
 
-        // Refresh analytics panel after 4s to pick up new conversion
+        // Refresh ana
+
       });
 
       [
