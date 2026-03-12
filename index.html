@@ -1327,7 +1327,7 @@
       <div class="hero-content">
         <div class="hero-eyebrow">Strategy · Design · Growth</div>
         <h1 class="hero-heading">
-          We build brands<br />that <em>define</em><br />their era.
+          We build Productsss<br />that <em>define</em><br />their era.
         </h1>
         <p class="hero-sub">
           Meridian is a boutique strategy and design studio helping ambitious
@@ -1344,8 +1344,8 @@
                 stroke-width="1.5"
                 stroke-linecap="round"
                 stroke-linejoin="round"
-              /></svg
-          ></a>
+              /></svg>
+            </a>
         </div>
       </div>
       <div class="hero-scroll-hint">
@@ -1546,8 +1546,8 @@
               stroke-width="1.5"
               stroke-linecap="round"
               stroke-linejoin="round"
-            /></svg
-        ></a>
+            /></svg>
+        </a>
       </div>
       <div class="work-grid">
         <div class="project-card large reveal">
@@ -1572,8 +1572,8 @@
                   stroke="currentColor"
                   stroke-width="1.5"
                   stroke-linecap="round"
-                /></svg
-            ></a>
+                /></svg>
+            </a>
           </div>
         </div>
         <div class="project-card reveal">
@@ -1597,8 +1597,8 @@
                   stroke="currentColor"
                   stroke-width="1.5"
                   stroke-linecap="round"
-                /></svg
-            ></a>
+                /></svg>
+            </a>
           </div>
         </div>
         <div class="project-card reveal">
@@ -1622,8 +1622,8 @@
                   stroke="currentColor"
                   stroke-width="1.5"
                   stroke-linecap="round"
-                /></svg
-            ></a>
+                /></svg>
+            </a>
           </div>
         </div>
       </div>
@@ -1843,89 +1843,6 @@
       </div>
     </section>
 
-    <!-- ✅ ANALYTICS DASHBOARD -->
-    <section id="analytics">
-      <div class="analytics-header">
-        <div>
-          <div class="section-tag">Live Analytics</div>
-          <h2 class="section-title reveal">
-            Site performance,<br /><em>real time</em>
-          </h2>
-        </div>
-        <div class="analytics-controls">
-          <div class="analytics-badge">
-            <div class="dot"></div>
-            Powered by Plausible
-          </div>
-          <div class="period-row">
-            Period:
-            <select id="periodSelect" onchange="loadAnalytics()">
-              <option value="7d">Last 7 days</option>
-              <option value="30d" selected>Last 30 days</option>
-              <option value="6mo">Last 6 months</option>
-              <option value="12mo">Last 12 months</option>
-            </select>
-          </div>
-        </div>
-      </div>
-
-      <!-- Row 1: traffic -->
-      <div class="analytics-row row1 reveal">
-        <div class="ac">
-          <div class="ac-label">Unique Visitors</div>
-          <div id="v-visitors" class="ac-skeleton">—</div>
-          <div id="s-visitors" class="ac-sub">Loading…</div>
-        </div>
-        <div class="ac">
-          <div class="ac-label">Total Pageviews</div>
-          <div id="v-pageviews" class="ac-skeleton">—</div>
-          <div id="s-pageviews" class="ac-sub">Loading…</div>
-        </div>
-        <div class="ac">
-          <div class="ac-label">Bounce Rate</div>
-          <div id="v-bounce" class="ac-skeleton">—</div>
-          <div id="s-bounce" class="ac-sub">Loading…</div>
-        </div>
-        <div class="ac">
-          <div class="ac-label">Avg. Visit Duration</div>
-          <div id="v-duration" class="ac-skeleton">—</div>
-          <div id="s-duration" class="ac-sub">Loading…</div>
-        </div>
-      </div>
-
-      <!-- Row 2: conversions -->
-      <div class="analytics-row row2 reveal reveal-delay-2">
-        <div class="ac gold">
-          <div class="ac-label">Total Leads</div>
-          <div id="v-leads" class="ac-skeleton">—</div>
-          <div id="s-leads" class="ac-sub">Contact Form Submit goal</div>
-        </div>
-        <div class="ac gold">
-          <div class="ac-label">Conversion Rate</div>
-          <div id="v-conv" class="ac-skeleton">—</div>
-          <div class="conv-track">
-            <div class="conv-fill" id="conv-bar"></div>
-          </div>
-          <div class="conv-meta" id="s-conv">Leads ÷ Unique Visitors × 100</div>
-        </div>
-        <div class="ac">
-          <div class="ac-label">Pages per Visit</div>
-          <div id="v-ppv" class="ac-skeleton">—</div>
-          <div id="s-ppv" class="ac-sub">Loading…</div>
-        </div>
-      </div>
-
-      <div class="api-error" id="api-error">
-        ⚠ Could not reach the Plausible Stats API. This is usually a
-        <strong>CORS restriction</strong> — the Stats API is designed for
-        server-side calls. Consider setting up a small proxy (Cloudflare Worker,
-        Vercel Edge Function) to forward requests with your API key.
-        <a href="https://plausible.io/docs/stats-api" target="_blank"
-          >Plausible API docs →</a
-        >
-      </div>
-    </section>
-
     <!-- FOOTER -->
     <footer>
       <div class="footer-logo">Meri<span>dian</span></div>
@@ -2051,164 +1968,6 @@
         el.addEventListener("input", () => (el.style.borderColor = ""));
         el.addEventListener("change", () => (el.style.borderColor = ""));
       });
-
-      /* ────────────────────────────────────────────
-    ✅ PLAUSIBLE STATS API
- ──────────────────────────────────────────── */
-      const API_KEY =
-        "mXvPXtmarX2wlY4voacqIX_U_0nvb8FI-p_CRRgE8TnyMMVW4NvbpGGzOeKoUF6H";
-      const SITE_ID = "meet-trivedi-techeniac.github.io/plausible-demo";
-
-      const fmt = (n) => {
-        if (n === null || n === undefined) return "—";
-        if (n >= 1e6) return (n / 1e6).toFixed(1) + "M";
-        if (n >= 1e3) return (n / 1e3).toFixed(1) + "K";
-        return String(n);
-      };
-      const fmtDur = (s) => {
-        if (!s) return "0s";
-        const m = Math.floor(s / 60),
-          sec = s % 60;
-        return m > 0 ? `${m}m ${sec}s` : `${sec}s`;
-      };
-      const setVal = (id, text, isGold = false) => {
-        const el = document.getElementById(id);
-        el.className = isGold ? "ac-val" : "ac-val";
-        el.textContent = text;
-      };
-      const setSub = (id, text) => {
-        document.getElementById(id).textContent = text;
-      };
-
-      async function plausibleGet(url) {
-        // Plausible Stats API blocks direct browser calls (CORS).
-        // We route through corsproxy.io which forwards request headers including Authorization.
-        const proxyUrl = "https://corsproxy.io/?" + encodeURIComponent(url);
-        const res = await fetch(proxyUrl, {
-          headers: { Authorization: "Bearer " + API_KEY },
-        });
-        if (!res.ok) throw new Error("HTTP " + res.status);
-        return res.json();
-      }
-
-      async function loadAnalytics() {
-        const period = document.getElementById("periodSelect").value;
-        const enc = encodeURIComponent(SITE_ID);
-        document.getElementById("api-error").style.display = "none";
-
-        // Reset to skeleton
-        [
-          "visitors",
-          "pageviews",
-          "bounce",
-          "duration",
-          "leads",
-          "conv",
-          "ppv",
-        ].forEach((k) => {
-          const el = document.getElementById("v-" + k);
-          if (el) {
-            el.className = "ac-skeleton";
-            el.textContent = "—";
-          }
-        });
-
-        try {
-          /* ── 1. Core metrics ── */
-          const agg = await plausibleGet(
-            `https://plausible.io/api/v1/stats/aggregate?site_id=${enc}&period=${period}&metrics=visitors,pageviews,bounce_rate,visit_duration,visits`,
-          );
-          const r = agg.results;
-          const visitors = r.visitors?.value ?? 0;
-          const pageviews = r.pageviews?.value ?? 0;
-          const bounce = r.bounce_rate?.value ?? null;
-          const duration = r.visit_duration?.value ?? null;
-          const visits = r.visits?.value ?? 0;
-
-          setVal("v-visitors", fmt(visitors));
-          setSub("s-visitors", `Unique users in the last ${period}`);
-
-          setVal("v-pageviews", fmt(pageviews));
-          setSub("s-pageviews", `Total pages viewed`);
-
-          setVal("v-bounce", bounce !== null ? bounce + "%" : "—");
-          setSub(
-            "s-bounce",
-            bounce === null
-              ? ""
-              : bounce < 40
-                ? "✦ Excellent"
-                : bounce < 60
-                  ? "Average"
-                  : "Needs improvement",
-          );
-
-          setVal("v-duration", fmtDur(duration));
-          setSub("s-duration", "Avg. time per session");
-
-          const ppv = visits > 0 ? (pageviews / visits).toFixed(1) : "—";
-          setVal("v-ppv", ppv);
-          setSub("s-ppv", "Pageviews per session");
-
-          /* ── 2. Goal completions (leads) ── */
-          const goalFilter = encodeURIComponent(
-            "event:goal==Contact Form Submit",
-          );
-          const goalData = await plausibleGet(
-            `https://plausible.io/api/v1/stats/aggregate?site_id=${enc}&period=${period}&metrics=events,visitors&filters=${goalFilter}`,
-          );
-          const gr = goalData.results;
-          const leads = gr.events?.value ?? gr.visitors?.value ?? 0;
-
-          setVal("v-leads", fmt(leads));
-          setSub("s-leads", `Form submissions (${period})`);
-
-          /* ── 3. Conversion rate ── */
-          const convPct =
-            visitors > 0 ? ((leads / visitors) * 100).toFixed(2) : "0.00";
-          setVal("v-conv", convPct + "%");
-          setSub(
-            "s-conv",
-            `${fmt(leads)} leads from ${fmt(visitors)} visitors`,
-          );
-          setTimeout(() => {
-            document.getElementById("conv-bar").style.width =
-              Math.min(parseFloat(convPct), 100) + "%";
-          }, 400);
-        } catch (err) {
-          console.warn("[Plausible API error]", err);
-          [
-            "visitors",
-            "pageviews",
-            "bounce",
-            "duration",
-            "leads",
-            "conv",
-            "ppv",
-          ].forEach((k) => {
-            const el = document.getElementById("v-" + k);
-            if (el) {
-              el.className = "ac-sub";
-              el.textContent = "unavailable";
-            }
-          });
-          document.getElementById("api-error").style.display = "block";
-        }
-      }
-
-      /* Load when analytics section scrolls into view */
-      let loaded = false;
-      new IntersectionObserver(
-        (entries) => {
-          entries.forEach((e) => {
-            if (e.isIntersecting && !loaded) {
-              loaded = true;
-              loadAnalytics();
-            }
-          });
-        },
-        { threshold: 0.1 },
-      ).observe(document.getElementById("analytics"));
     </script>
   </body>
 </html>
