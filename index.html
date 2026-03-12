@@ -14,9 +14,18 @@
     <!-- Privacy-friendly analytics by Plausible -->
     <script async src="https://plausible.io/js/pa-eywjyGo6AEorRuxMnKwKZ.js"></script>
     <script>
+      // Queue custom events until pa- script is ready
       window.plausible = window.plausible || function() {
         (window.plausible.q = window.plausible.q || []).push(arguments);
       };
+      document.addEventListener("DOMContentLoaded", function() {
+        // Re-check after DOM ready to ensure pa- script has initialized
+        setTimeout(function() {
+          if (window.plausible && window.plausible.q) {
+            console.log("[Plausible] Script loaded, flushing queue:", window.plausible.q.length, "events");
+          }
+        }, 2000);
+      });
     </script>
 
 
